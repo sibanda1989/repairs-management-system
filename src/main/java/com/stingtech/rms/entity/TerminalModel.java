@@ -12,6 +12,6 @@ public class TerminalModel {
     @Column(nullable = false)
     private String modelName;
     @ManyToOne(targetEntity = Vendor.class)
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     private Vendor vendor;
 }
