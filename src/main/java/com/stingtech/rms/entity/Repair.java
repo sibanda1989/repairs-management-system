@@ -11,15 +11,15 @@ public class Repair {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long repairId;
     @ManyToOne(targetEntity = Terminal.class)
-    @JoinColumn(name = "terminal", nullable = false)
+    @JoinColumn(nullable = false)
     private Terminal terminal;
     @Column(name = "date_received", nullable = false)
     private Date dateReceived;
-    @Column(name = "date_ready", nullable = false)
+    @Column(name = "date_ready")
     private Date dateReady;
-    @Column(name = "fault", nullable = false)
+    @Column(name = "fault")
     private String fault;
-    @Column(name = "solution", nullable = false)
+    @Column(name = "solution")
     private String solution;
 
     public Repair(Date dateReceived) {
