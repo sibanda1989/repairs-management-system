@@ -13,7 +13,6 @@ public class VendorController {
     private final VendorService vendorService;
 
     public VendorController(VendorService vendorService) {
-        super();
         this.vendorService = vendorService;
     }
 

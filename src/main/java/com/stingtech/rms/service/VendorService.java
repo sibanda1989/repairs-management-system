@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface VendorService {
     List<Vendor> getAllVendors();
+    Vendor getVendorById(Long id);
 }
