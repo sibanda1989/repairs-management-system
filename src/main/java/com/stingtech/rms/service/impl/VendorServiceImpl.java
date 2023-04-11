@@ -25,4 +25,9 @@ public class VendorServiceImpl implements VendorService {
     public Vendor getVendorById(Long id) {
         return vendorRepository.findById(id).get();
     }
+
+    @Override
+    public Vendor saveVendor(Vendor vendor) {
+        return vendorRepository.save(vendor);
+    }
 }

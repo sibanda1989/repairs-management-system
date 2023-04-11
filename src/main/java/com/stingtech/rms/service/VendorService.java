@@ -7,4 +7,5 @@ import java.util.List;
 public interface VendorService {
     List<Vendor> getAllVendors();
     Vendor getVendorById(Long id);
+    Vendor saveVendor(Vendor vendor);
 }

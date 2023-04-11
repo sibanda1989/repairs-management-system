@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Repairs Management System</title>
@@ -11,7 +11,7 @@
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <!-- Brand -->
-  <a class="navbar-brand" href="#">Vendor Management</a>
+  <a class="navbar-brand" href="#">Repairs Management System</a>
 
   <!-- Toggler/collapsibe Button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -22,37 +22,37 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/index}">Home</a>
+        <a class="nav-link" th:href="@{/vendors}">Vendors</a>
       </li>
     </ul>
   </div>
 </nav>
 
+<br>
+<br>
+
 <div class="container">
   <div class="row">
-    <h1>Vendors</h1>
-  </div>
-  <div class = "row">
-    <div class = "col-lg-3">
-      <a th:href="@{/vendors/new}" class="btn btn-primary btn-sm mb-3">Add Vendor</a>
+    <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+      <h1 class="text-center">Create New Vendor</h1>
+      <div class="card-body">
+
+        <form th:action="@{/vendors}" th:object="${vendor}" method="POST">
+
+          <div class="form-group">
+            <label>Vendor Name</label>
+            <input type="text" name="vendorName" th:field = "*{vendorName}" class="form-control" placeholder="Enter Vendor Name"/>
+          </div>
+
+          <div class="footer-body">
+            <button type="submit" class="btn btn-primary"> Submit </button>
+          </div>
+
+        </form>
+      </div>
     </div>
   </div>
-  <table class="table table-striped table-bordered">
-    <thead class = "table-dark">
-    <tr>
-      <th>Vendor Name</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each = "vendor : ${vendors}">
-      <td th:text = "${vendor.vendorName}"></td>
-      <td> <a th:href = "@{/vendors/edit/{id}(id=${vendor.vendorId})}" class = "btn btn-primary"> Update </a>
-        <a th:href = "@{/vendors/{id}(id=${vendor.vendorId})}" class = "btn btn-danger"> Delete </a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
 </div>
+
 </body>
 </html>
