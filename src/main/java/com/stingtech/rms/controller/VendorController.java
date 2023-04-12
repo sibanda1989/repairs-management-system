@@ -20,8 +20,9 @@ public class VendorController {
     }
 
     @GetMapping("/vendors")
-    public List<Vendor> getVendors(){
-        return vendorService.getAllVendors();
+    public String listVendors(Model model){
+        model.addAttribute("vendors", vendorService.getAllVendors());
+        return "vendors";
     }
 
     @GetMapping("/vendors/new")
