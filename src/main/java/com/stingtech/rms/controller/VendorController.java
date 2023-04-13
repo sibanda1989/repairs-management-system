@@ -40,7 +40,7 @@ public class VendorController {
         return "redirect:/vendors";
     }
 
-    @GetMapping("/students/edit/{id}")
+    @GetMapping("/vendors/edit/{id}")
     public String editVendorForm(@PathVariable Long id, Model model){
         model.addAttribute("vendor", vendorService.getVendorById(id));
         return "edit-vendor";
