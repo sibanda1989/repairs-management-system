@@ -45,4 +45,17 @@ public class VendorController {
         model.addAttribute("vendor", vendorService.getVendorById(id));
         return "edit-vendor";
     }
+
+    @PostMapping("/vendors/{id}")
+    public String updateStudent(@PathVariable Long id,@ModelAttribute Vendor vendor, Model model){
+
+        // get student from database by id
+        Vendor existingVendor = vendorService.getVendorById(id);
+        existingVendor.setVendorId(id);
+        existingVendor.setVendorName(vendor.getVendorName());
+
+        // save the updated student
+        vendorService.updateVendor(existingVendor);
+        return "redirect:/students";
+    }
 }

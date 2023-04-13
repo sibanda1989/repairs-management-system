@@ -30,4 +30,9 @@ public class VendorServiceImpl implements VendorService {
     public Vendor saveVendor(Vendor vendor) {
         return vendorRepository.save(vendor);
     }
+
+    @Override
+    public Vendor updateVendor(Vendor existingVendor) {
+        return vendorRepository.save(existingVendor);
+    }
 }
