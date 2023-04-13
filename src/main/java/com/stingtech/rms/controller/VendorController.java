@@ -49,13 +49,21 @@ public class VendorController {
     @PostMapping("/vendors/{id}")
     public String updateStudent(@PathVariable Long id,@ModelAttribute Vendor vendor, Model model){
 
-        // get student from database by id
+        // get vendor from database by id
         Vendor existingVendor = vendorService.getVendorById(id);
         existingVendor.setVendorId(id);
         existingVendor.setVendorName(vendor.getVendorName());
 
-        // save the updated student
+        // save the updated vendor
         vendorService.updateVendor(existingVendor);
+        return "redirect:/vendors";
+    }
+
+    //method to handle delete vendor
+    @GetMapping("/vendors/{id}")
+    public String deleteVendor(@PathVariable Long id){
+        //delete student by id
+        vendorService.deleteVendor(id);
         return "redirect:/vendors";
     }
 }

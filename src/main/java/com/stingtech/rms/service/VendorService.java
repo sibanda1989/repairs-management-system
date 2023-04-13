@@ -10,4 +10,6 @@ public interface VendorService {
     Vendor saveVendor(Vendor vendor);
 
     Vendor updateVendor(Vendor existingVendor);
+
+    void deleteVendor(Long id);
 }

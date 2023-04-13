@@ -35,4 +35,9 @@ public class VendorServiceImpl implements VendorService {
     public Vendor updateVendor(Vendor existingVendor) {
         return vendorRepository.save(existingVendor);
     }
+
+    @Override
+    public void deleteVendor(Long id) {
+        vendorRepository.deleteById(id);
+    }
 }
