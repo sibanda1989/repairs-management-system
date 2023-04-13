@@ -37,7 +37,7 @@
       <h1 class="text-center">Update Vendor</h1>
       <div class="card-body">
 
-        <form th:action="@{/vendors/{id} (id=${vendor.id})}" th:object="${vendor}" method="POST">
+        <form th:action="@{/vendors/{id} (id=${vendor.vendorId})}" th:object="${vendor}" method="POST">
 
           <div class="form-group">
             <label>Vendor Name</label>
