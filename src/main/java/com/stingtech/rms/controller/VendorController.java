@@ -56,6 +56,6 @@ public class VendorController {
 
         // save the updated student
         vendorService.updateVendor(existingVendor);
-        return "redirect:/students";
+        return "redirect:/vendors";
     }
 }
