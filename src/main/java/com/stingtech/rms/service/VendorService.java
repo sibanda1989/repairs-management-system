@@ -4,7 +4,7 @@ import com.stingtech.rms.entity.Vendor;
 
 import java.util.List;
 
-public interface VendorService {
+public interface IVendorService {
     List<Vendor> getAllVendors();
     Vendor getVendorById(Long id);
     Vendor saveVendor(Vendor vendor);

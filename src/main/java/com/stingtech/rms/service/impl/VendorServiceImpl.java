@@ -2,13 +2,13 @@ package com.stingtech.rms.service.impl;
 
 import com.stingtech.rms.entity.Vendor;
 import com.stingtech.rms.repository.VendorRepository;
-import com.stingtech.rms.service.VendorService;
+import com.stingtech.rms.service.IVendorService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class VendorServiceImpl implements VendorService {
+public class VendorServiceImpl implements IVendorService {
 
     private final VendorRepository vendorRepository;
 
