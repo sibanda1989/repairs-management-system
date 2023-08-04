@@ -47,7 +47,7 @@ public class VendorController {
     }
 
     @PostMapping("/vendors/{id}")
-    public String updateStudent(@PathVariable Long id,@ModelAttribute Vendor vendor, Model model){
+    public String updateVendor(@PathVariable Long id, @ModelAttribute Vendor vendor, Model model){
 
         // get vendor from database by id
         Vendor existingVendor = vendorService.getVendorById(id);
