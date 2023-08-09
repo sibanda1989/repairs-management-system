@@ -37,4 +37,53 @@ public class Repair {
 
 //    public Repair() {
 //    }
+
+
+    public long getRepairId() {
+        return repairId;
+    }
+
+    public void setRepairId(long repairId) {
+        this.repairId = repairId;
+    }
+
+    public Terminal getTerminal() {
+        return terminal;
+    }
+
+    public void setTerminal(Terminal terminal) {
+        this.terminal = terminal;
+    }
+
+    public Date getDateReceived() {
+        return dateReceived;
+    }
+
+    public void setDateReceived(Date dateReceived) {
+        this.dateReceived = dateReceived;
+    }
+
+    public Date getDateReady() {
+        return dateReady;
+    }
+
+    public void setDateReady(Date dateReady) {
+        this.dateReady = dateReady;
+    }
+
+    public String getFault() {
+        return fault;
+    }
+
+    public void setFault(String fault) {
+        this.fault = fault;
+    }
+
+    public String getSolution() {
+        return solution;
+    }
+
+    public void setSolution(String solution) {
+        this.solution = solution;
+    }
 }
