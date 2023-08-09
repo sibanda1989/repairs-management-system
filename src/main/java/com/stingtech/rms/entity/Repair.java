@@ -22,17 +22,19 @@ public class Repair {
     @Column(name = "solution")
     private String solution;
 
-    public Repair(Date dateReceived) {
+    public Repair(Date dateReceived, Terminal terminal) {
         this.dateReceived = dateReceived;
+        this.terminal = terminal;
     }
 
-    public Repair(Date dateReceived, Date dateReady, String fault, String solution) {
+    public Repair(Date dateReceived, Terminal terminal, Date dateReady, String fault, String solution) {
         this.dateReceived = dateReceived;
+        this.terminal = terminal;
         this.dateReady = dateReady;
         this.fault = fault;
         this.solution = solution;
     }
 
-    public Repair() {
-    }
+//    public Repair() {
+//    }
 }
