@@ -16,8 +16,8 @@ public class Vendor {
         this.vendorName = vendorName;
     }
 
-//    public Vendor() {
-//    }
+    public Vendor() {
+    }
 
     public Long getVendorId() {
         return vendorId;
