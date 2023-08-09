@@ -21,6 +21,10 @@ public class TerminalModel {
         this.vendor = vendor;
     }
 
+    public TerminalModel() {
+
+    }
+
     public Long getModelId() {
         return modelId;
     }

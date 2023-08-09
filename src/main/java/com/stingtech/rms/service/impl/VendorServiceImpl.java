@@ -37,7 +37,6 @@ public class VendorServiceImpl implements VendorService {
         First establish if Vendor exists, then update vendor with the changes
          */
         Vendor existingVendor = vendorRepository.findById(id).get();
-        existingVendor.setVendorId(id);
         existingVendor.setVendorName(vendor.getVendorName());
 
         // now save the vendor
