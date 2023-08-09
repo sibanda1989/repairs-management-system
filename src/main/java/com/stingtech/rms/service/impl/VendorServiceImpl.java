@@ -32,7 +32,15 @@ public class VendorServiceImpl implements VendorService {
     }
 
     @Override
-    public Vendor updateVendor(Vendor existingVendor) {
+    public Vendor updateVendor(Long id, Vendor vendor) {
+        /*
+        First establish if Vendor exists, then update vendor with the changes
+         */
+        Vendor existingVendor = vendorRepository.findById(id).get();
+        existingVendor.setVendorId(id);
+        existingVendor.setVendorName(vendor.getVendorName());
+
+        // now save the vendor
         return vendorRepository.save(existingVendor);
     }
 

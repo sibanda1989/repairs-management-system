@@ -48,14 +48,7 @@ public class VendorController {
 
     @PostMapping("/vendors/{id}")
     public String updateVendor(@PathVariable Long id, @ModelAttribute Vendor vendor, Model model){
-
-        // get vendor from database by id
-        Vendor existingVendor = vendorService.getVendorById(id);
-        existingVendor.setVendorId(id);
-        existingVendor.setVendorName(vendor.getVendorName());
-
-        // save the updated vendor
-        vendorService.updateVendor(existingVendor);
+        vendorService.updateVendor(id, vendor);
         return "redirect:/vendors";
     }
 
