@@ -29,7 +29,7 @@ public class ModelController {
     public String createModelForm(Model model){
         TerminalModel terminalModel = new TerminalModel();
         model.addAttribute("model", terminalModel);
-        return "model";
+        return "create-model";
     }
     @PostMapping("/models")
     public String saveModel(@ModelAttribute TerminalModel terminalModel){
