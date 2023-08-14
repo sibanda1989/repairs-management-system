@@ -41,9 +41,15 @@
                     <div class="form-group">
                         <label>Model Name</label>
                         <input type="text" name="modelName" th:field = "*{modelName}" class="form-control" placeholder="Enter Model Name"/>
-                        <input type="text" name="vendor" th:field = "*{vendor.vendorId}" class="form-control" placeholder="Enter Vendor Name"/>
                     </div>
-
+                    <div class="form-group">
+                        <label for="vendor">Vendor:</label>
+            <select id="vendor" name="vendor.vendorId" th:field="*{vendor.vendorId}">
+                <option value="">-- Select Vendor --</option>
+                <option th:each="vendor : ${vendors}" th:value="${vendor.vendorId}" th:text="${vendor.vendorName}">
+                </option>
+            </select>
+                    </div>
                     <div class="footer-body">
                         <button type="submit" class="btn btn-primary"> Submit </button>
                     </div>
