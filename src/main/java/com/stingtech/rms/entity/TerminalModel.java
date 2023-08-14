@@ -22,9 +22,10 @@ public class TerminalModel {
     }
 
     public TerminalModel() {
-
     }
-
+    public TerminalModel(String modelName) {
+        this.modelName = modelName;
+    }
     public Long getModelId() {
         return modelId;
     }

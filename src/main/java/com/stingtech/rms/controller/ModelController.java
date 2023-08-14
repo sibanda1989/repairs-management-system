@@ -27,6 +27,7 @@ public class ModelController {
 
     @GetMapping("/models/new")
     public String createModelForm(Model model){
+        //create terminal model from Form data
         TerminalModel terminalModel = new TerminalModel();
         model.addAttribute("model", terminalModel);
         return "create-model";

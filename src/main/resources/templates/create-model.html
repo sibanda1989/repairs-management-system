@@ -36,11 +36,12 @@
             <h1 class="text-center">Create New Model</h1>
             <div class="card-body">
 
-                <form th:action="@{/models}" th:object="${terminalModel}" method="POST">
+                <form th:action="@{/models}" th:object="${model}" method="POST">
 
                     <div class="form-group">
                         <label>Model Name</label>
                         <input type="text" name="modelName" th:field = "*{modelName}" class="form-control" placeholder="Enter Model Name"/>
+                        <input type="text" name="vendor" th:field = "*{vendor.vendorId}" class="form-control" placeholder="Enter Vendor Name"/>
                     </div>
 
                     <div class="footer-body">
