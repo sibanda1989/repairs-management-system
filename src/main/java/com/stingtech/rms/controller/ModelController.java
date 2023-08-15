@@ -26,10 +26,11 @@ public class ModelController {
     }
 
     @GetMapping("/models")
-    public String listModels(){
-        modelService.getAllModels();
+    public String listModels(Model model){
+        model.addAttribute("vendors", vendorService.getAllVendors());
+        model.addAttribute("terminalModels", modelService.getAllModels());
         return "models";
-    }
+}
 
     @GetMapping("/models/new")
     public String createModelForm(Model model){
