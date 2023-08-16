@@ -47,7 +47,7 @@
         <tbody>
         <tr th:each = "terminalModel : ${terminalModels}">
             <td th:text = "${terminalModel.modelName}"></td>
-            <td th:text = "${terminalModel.vendor}"></td>
+            <td th:text = "${terminalModel.vendor.vendorName}"></td>
             <td> <a th:href = "@{/models/edit/{id}(id=${terminalModel.modelId})}" class = "btn btn-primary"> Update </a>
                 <a th:href = "@{/models/edit/{id}(id=${terminalModel.modelId})}"  class = "btn btn-danger"> Delete </a>
             </td>
