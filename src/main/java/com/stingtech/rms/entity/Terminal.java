@@ -15,11 +15,33 @@ public class Terminal {
     @JoinColumn(nullable = false)
     private TerminalModel terminalModel;
 
-    public Terminal(String ptid) {
+    public Terminal(long terminalId, String ptid, TerminalModel terminalModel) {
+        this.terminalId = terminalId;
+        this.ptid = ptid;
+        this.terminalModel = terminalModel;
+    }
+
+    public long getTerminalId() {
+        return terminalId;
+    }
+
+    public void setTerminalId(long terminalId) {
+        this.terminalId = terminalId;
+    }
+
+    public String getPtid() {
+        return ptid;
+    }
+
+    public void setPtid(String ptid) {
         this.ptid = ptid;
     }
 
-    public Terminal() {
+    public TerminalModel getTerminalModel() {
+        return terminalModel;
+    }
 
+    public void setTerminalModel(TerminalModel terminalModel) {
+        this.terminalModel = terminalModel;
     }
 }
