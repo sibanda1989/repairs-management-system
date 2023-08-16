@@ -44,7 +44,7 @@ public class ModelController {
     @PostMapping("/models")
     public String saveModel(@ModelAttribute TerminalModel terminalModel){
         modelService.saveModel(terminalModel);
-        return "models";
+        return "redirect:/models";
     }
 
     public String updateModel(){
