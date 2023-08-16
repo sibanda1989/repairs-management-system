@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -47,12 +48,28 @@ public class ModelController {
         return "redirect:/models";
     }
 
-    public String updateModel(){
-        return null;
+    @GetMapping("/models/edit/{id}")
+    public String editVendorForm(@PathVariable Long id, Model model){
+        model.addAttribute("terminalModel", modelService.getModelById(id));
+        return "edit-model";
     }
 
-    public String deleteModel(){
-        return null;
+    @PostMapping("/models/{id}")
+    public String updateModel(@PathVariable Long id, @ModelAttribute TerminalModel terminalModel, Model model){
+        /*
+        This method handles updating of models. It takes the id of the model and updates the relevant field.
+        The updated terminalModel object is then POSTed
+         */
+        modelService.updateModel(id, terminalModel);
+        return "redirect:/models";
+    }
+
+    //method to handle delete model
+    @GetMapping("/models/{id}")
+    public String deleteModel(@PathVariable Long id){
+        //delete student by id
+        modelService.deleteModel(id);
+        return "redirect:/models";
     }
 
 
