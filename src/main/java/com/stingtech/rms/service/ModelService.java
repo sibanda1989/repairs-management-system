@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ModelService{
@@ -25,6 +26,15 @@ public class ModelService{
         return modelRepository.findById(modelId).get();
     }
     public TerminalModel saveModel(TerminalModel terminalModel){
+         /*
+        Before saving the model we need to check if the model exists.
+        If it exists, need to notify user that model already exists
+         */
+        Optional<TerminalModel> modelOptional =  modelRepository
+                .findModelByName(terminalModel.getModelName());
+        if (modelOptional.isPresent()){
+            throw new IllegalStateException("email taken");
+        }
         return modelRepository.save(terminalModel);
     }
     public TerminalModel updateModel(Long modelId, TerminalModel terminalModel){
