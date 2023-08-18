@@ -31,9 +31,9 @@ public class ModelService{
         If it exists, need to notify user that model already exists
          */
         Optional<TerminalModel> modelOptional =  modelRepository
-                .findModelByName(terminalModel.getModelName());
+                .findTerminalModelByName(terminalModel.getModelName());
         if (modelOptional.isPresent()){
-            throw new IllegalStateException("email taken");
+            throw new IllegalStateException("model already exists!");
         }
         return modelRepository.save(terminalModel);
     }

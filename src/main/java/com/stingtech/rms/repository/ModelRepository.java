@@ -12,6 +12,6 @@ This repository extends JpaRepository methods for use in the Service layer.
 
 
 public interface ModelRepository extends JpaRepository<TerminalModel, Long> {
-    @Query("SELECT m FROM models m WHERE m.modelName = ?1")
-    Optional<TerminalModel> findModelByName(String modelName);
+    @Query("SELECT m FROM TerminalModel m WHERE m.modelName = ?1")
+    Optional<TerminalModel> findTerminalModelByName(String modelName);
 }
