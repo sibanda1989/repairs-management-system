@@ -44,12 +44,14 @@ public class ModelController {
         return "create-model";
     }
     @PostMapping("/models")
-    public String saveModel(@ModelAttribute TerminalModel terminalModel){
+    public String saveModel(@ModelAttribute TerminalModel terminalModel, Model model){
         try{
             modelService.saveModel(terminalModel);
         }
         catch(IllegalStateException exception){
-            System.out.println("Model already exists!");
+            String errorMessage = "Model already exists!";
+            model.addAttribute("error", errorMessage);
+            return "error";
         }
         return "redirect:/models";
     }
