@@ -51,7 +51,7 @@ public class ModelController {
         catch(IllegalStateException exception){
             String errorMessage = "Model already exists!";
             model.addAttribute("error", errorMessage);
-            return "error";
+            throw exception; //rethrow the exception to GlobalExceptionHandler class
         }
         return "redirect:/models";
     }
