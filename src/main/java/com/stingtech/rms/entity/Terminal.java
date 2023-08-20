@@ -21,6 +21,9 @@ public class Terminal {
         this.terminalModel = terminalModel;
     }
 
+    public Terminal() {
+    }
+
     public long getTerminalId() {
         return terminalId;
     }
