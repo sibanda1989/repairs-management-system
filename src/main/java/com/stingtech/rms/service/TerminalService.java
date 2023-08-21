@@ -34,4 +34,9 @@ public class TerminalService {
 
         //handle NoSuchElement exception when terminal not found
     }
+
+    public void deleteTerminal(Long id) {
+        Terminal terminal = findTerminal(id);
+        terminalRepository.delete(terminal);
+    }
 }

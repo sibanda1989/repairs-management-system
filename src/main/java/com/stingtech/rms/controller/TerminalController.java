@@ -64,7 +64,9 @@ public class TerminalController {
         return "edit-terminal";
    }
 
-   public String deleteTerminal(){
-        return null;
+   @GetMapping("terminals/{id}")
+   public String deleteTerminal(@PathVariable Long id){
+        terminalService.deleteTerminal(id);
+        return "redirect:/terminals";
    }
 }
