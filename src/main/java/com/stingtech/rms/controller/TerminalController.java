@@ -7,7 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.NoSuchElementException;
 
 @Controller
 public class TerminalController {
@@ -42,13 +45,22 @@ public class TerminalController {
 
     @GetMapping("terminals/search")
    public String searchTerminal(Model model, Terminal terminal){
-        Terminal exisitingTerminal = terminalService.findTerminal(terminal.getTerminalId());
-        model.addAttribute("terminal", exisitingTerminal);
+        try{
+            Terminal exisitingTerminal = terminalService.findTerminal(terminal.getTerminalId());
+            model.addAttribute("terminal", exisitingTerminal);
+        }
+        catch (NoSuchElementException exception){
+            String errorMessage = "Terminal Not Found!";
+            model.addAttribute("error", errorMessage);
+            throw exception;
+        }
+
         return "terminals";
    }
 
    @GetMapping("terminals/edit/{id}")
-   public String editTerminalForm(){
+   public String editTerminalForm(@PathVariable Long id, Model model){
+        model.addAttribute("terminal", terminalService.findTerminal(id));
         return "edit-terminal";
    }
 

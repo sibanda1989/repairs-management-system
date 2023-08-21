@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -26,7 +27,7 @@ public class TerminalService {
         terminalRepository.save(terminal);
     }
 
-    public Terminal findTerminal(long terminalId) {
+    public Terminal findTerminal(long terminalId) throws NoSuchElementException {
         Optional<Terminal> terminalOptional = terminalRepository.findById(terminalId);
         Terminal existingTerminal = terminalOptional.get();
         return existingTerminal;
