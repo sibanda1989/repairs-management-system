@@ -46,4 +46,13 @@ public class TerminalController {
         model.addAttribute("terminal", exisitingTerminal);
         return "terminals";
    }
+
+   @GetMapping("terminals/edit/{id}")
+   public String editTerminalForm(){
+        return "edit-terminal";
+   }
+
+   public String deleteTerminal(){
+        return null;
+   }
 }
