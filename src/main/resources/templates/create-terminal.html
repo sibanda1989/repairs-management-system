@@ -44,7 +44,7 @@
                     </div>
                     <div class="form-group">
                         <label for="model">Model:</label>
-            <select id="model" name="model.modelId" th:field="*{model.modelId}">
+            <select id="terminalModel" name="terminalModel.modelId" th:field="*{terminalModel.modelId}">
                 <option value="">-- Select Model --</option>
                 <option th:each="model : ${models}" th:value="${model.modelId}" th:text="${model.modelName}">
                 </option>
