@@ -32,7 +32,7 @@ public class TerminalController {
         model.addAttribute("terminals", terminalService.getAllTerminals());
         return "terminals";
     }
-    @GetMapping("terminal/new")
+    @GetMapping("terminals/new")
     public String createTerminalForm(Model model){
         /*
         This method creates an object used to populate the form, by using fields from the entity class
