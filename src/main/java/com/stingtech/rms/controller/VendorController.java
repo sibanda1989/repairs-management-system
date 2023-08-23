@@ -42,12 +42,16 @@ public class VendorController {
 
     @GetMapping("/vendors/edit/{id}")
     public String editVendorForm(@PathVariable Long id, Model model){
+        /*
+        this method handles GET requests to the /vendors/edit/{id} URL, retrieves a vendor by its ID using a service class,
+        adds the vendor to the model, and returns the logical view name "edit-vendor" to render the response
+         */
         model.addAttribute("vendor", vendorService.getVendorById(id));
         return "edit-vendor";
     }
 
     @PostMapping("/vendors/{id}")
-    public String updateVendor(@PathVariable Long id, @ModelAttribute Vendor vendor, Model model){
+    public String updateVendor(@PathVariable Long id, @ModelAttribute Vendor vendor){
         vendorService.updateVendor(id, vendor);
         return "redirect:/vendors";
     }

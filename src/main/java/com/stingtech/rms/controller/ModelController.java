@@ -7,15 +7,13 @@ import com.stingtech.rms.service.VendorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@Controller("/model")
+@Controller()
+//@RequestMapping("/model")
 public class ModelController {
 
     private final ModelService modelService;
@@ -27,21 +25,21 @@ public class ModelController {
         this.vendorService = vendorService;
     }
 
-    @GetMapping("/models")
+    @GetMapping("/model/models")
     public String listModels(Model model){
         model.addAttribute("vendors", vendorService.getAllVendors());
         model.addAttribute("terminalModels", modelService.getAllModels());
-        return "models";
+        return "model/models";
 }
 
-    @GetMapping("/models/new")
+    @GetMapping("/model/models/new")
     public String createModelForm(Model model){
         //create terminal model from Form data
         List<Vendor> vendors = vendorService.getAllVendors();
         TerminalModel terminalModel = new TerminalModel();
         model.addAttribute("vendors", vendors);
         model.addAttribute("model", terminalModel);
-        return "create-model";
+        return "model/create-model";
     }
     @PostMapping("/models")
     public String saveModel(@ModelAttribute TerminalModel terminalModel, Model model){
@@ -53,13 +51,13 @@ public class ModelController {
             model.addAttribute("error", errorMessage);
             throw exception; //rethrow the exception to GlobalExceptionHandler class
         }
-        return "redirect:/models";
+        return "redirect:/model/models";
     }
 
-    @GetMapping("/models/edit/{id}")
-    public String editVendorForm(@PathVariable Long id, Model model){
+    @GetMapping("/model/models/edit/{id}")
+    public String editModelForm(@PathVariable Long id, Model model){
         model.addAttribute("terminalModel", modelService.getModelById(id));
-        return "edit-model";
+        return "model/edit-model";
     }
 
     @PostMapping("/models/{id}")
@@ -69,15 +67,15 @@ public class ModelController {
         The updated terminalModel object is then POSTed
          */
         modelService.updateModel(id, terminalModel);
-        return "redirect:/models";
+        return "redirect:/model/models";
     }
 
     //method to handle delete model
-    @GetMapping("/models/{id}")
+    @GetMapping("/model/models/{id}")
     public String deleteModel(@PathVariable Long id){
         //delete student by id
         modelService.deleteModel(id);
-        return "redirect:/models";
+        return "redirect:/model/models";
     }
 
 
