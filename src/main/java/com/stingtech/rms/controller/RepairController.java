@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/repair")
+@RestController()
+@RequestMapping("/repair")
 public class RepairController {
 
     private final RepairService repairService;
@@ -26,8 +27,8 @@ public class RepairController {
     @GetMapping("/repairs")
     // *TO DO* is this not a duplication, since app is listening at "/repairs" at class level?
     public String getRepairs(Model model){
-        List<Repair> repairs = repairService.getRepairs();
-        model.addAttribute("repairs", repairs);
+        model.addAttribute("terminals", terminalService.getAllTerminals());
+        model.addAttribute("repairs", repairService.getRepairs());
         return redirect;
     }
 
