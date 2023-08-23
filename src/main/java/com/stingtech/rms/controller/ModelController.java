@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@Controller("/model")
 public class ModelController {
 
     private final ModelService modelService;
