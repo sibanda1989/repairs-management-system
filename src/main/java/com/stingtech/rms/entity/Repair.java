@@ -22,6 +22,9 @@ public class Repair {
     @Column(name = "solution")
     private String solution;
 
+    public Repair() {
+    }
+
     public Repair(Date dateReceived, Terminal terminal) {
         this.dateReceived = dateReceived;
         this.terminal = terminal;
