@@ -33,7 +33,7 @@ public class RepairController {
         return "repair/repairs";
     }
 
-    @GetMapping("/repairs/new")
+    @GetMapping("/repair/repairs/new")
     public String createRepairForm(Model model){
         List<Terminal> terminals = terminalService.getAllTerminals();
         Repair repair = new Repair();

@@ -9,7 +9,7 @@ import java.util.Date;
 public class Repair {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long repairId;
+    private Long repairId;
     @ManyToOne(targetEntity = Terminal.class)
     @JoinColumn(nullable = false)
     private Terminal terminal;
