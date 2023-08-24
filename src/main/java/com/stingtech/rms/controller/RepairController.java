@@ -5,18 +5,19 @@ import com.stingtech.rms.entity.Terminal;
 import com.stingtech.rms.service.RepairService;
 import com.stingtech.rms.service.TerminalService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController()
-@RequestMapping("/repair")
+@Controller()
+//@RequestMapping("/repair")
 public class RepairController {
 
     private final RepairService repairService;
     private final TerminalService terminalService;
-    String redirect = "redirect:/repairs";
+    String redirect = "/repair/repairs";
 
     @Autowired
     public RepairController(RepairService repairService, TerminalService terminalService) {
@@ -24,12 +25,12 @@ public class RepairController {
         this.terminalService = terminalService;
     }
 
-    @GetMapping("/repairs")
+    @GetMapping("/repair/repairs")
     // *TO DO* is this not a duplication, since app is listening at "/repairs" at class level?
     public String getRepairs(Model model){
         model.addAttribute("terminals", terminalService.getAllTerminals());
         model.addAttribute("repairs", repairService.getRepairs());
-        return redirect;
+        return "repair/repairs";
     }
 
     @GetMapping("/repairs/new")
@@ -38,7 +39,7 @@ public class RepairController {
         Repair repair = new Repair();
         model.addAttribute("terminals", terminals);
         model.addAttribute("repair", repair);
-        return "create-repair";
+        return "repair/create-repair";
     }
 
     @PostMapping("/repairs")
