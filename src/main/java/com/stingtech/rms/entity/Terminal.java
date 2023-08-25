@@ -8,14 +8,14 @@ public class Terminal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private long terminalId;
+    private Long terminalId;
     @Column(nullable = false)
     private String ptid;
     @ManyToOne(targetEntity = TerminalModel.class)
     @JoinColumn(nullable = false)
     private TerminalModel terminalModel;
 
-    public Terminal(long terminalId, String ptid, TerminalModel terminalModel) {
+    public Terminal(Long terminalId, String ptid, TerminalModel terminalModel) {
         this.terminalId = terminalId;
         this.ptid = ptid;
         this.terminalModel = terminalModel;
@@ -24,11 +24,11 @@ public class Terminal {
     public Terminal() {
     }
 
-    public long getTerminalId() {
+    public Long getTerminalId() {
         return terminalId;
     }
 
-    public void setTerminalId(long terminalId) {
+    public void setTerminalId(Long terminalId) {
         this.terminalId = terminalId;
     }
 
