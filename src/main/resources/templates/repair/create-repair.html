@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
+          <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
@@ -40,11 +43,21 @@
 
                     <div class="form-group">
                         <label>Date Received</label>
-                        <input type="text" name="dateReceived" th:field = "*{dateReceived}" class="form-control" placeholder="Enter Date Received"/>
+                        <input type="text" id="datepickerrec" name="dateReceived" th:field = "*{dateReceived}" class="form-control" placeholder="Select Date Received"/>
+                        <script th:inline="javascript">
+                            $(document).ready(function() {
+                            $("#datepickerrec").datepicker();
+                            });
+                        </script>
                     </div>
                     <div class="form-group">
                         <label>Date Ready</label>
-                        <input type="text" name="dateReady" th:field = "*{dateReady}" class="form-control" placeholder="Enter Date Ready"/>
+                        <input type="text" id="datepickerred" name="dateReady" th:field = "*{dateReady}" class="form-control" placeholder="Select Date Ready"/>
+                        <script th:inline="javascript">
+                            $(document).ready(function() {
+                            $("#datepickerred").datepicker();
+                            });
+                        </script>
                     </div>
                     <div class="form-group">
                         <label>Fault</label>
