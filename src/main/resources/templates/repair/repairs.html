@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:util="urn:java:org.thymeleaf.extras.java8time.util">
 <head>
     <meta charset="UTF-8">
     <title>Repairs Management System</title>
@@ -54,8 +54,8 @@
             <td th:text = "${repair.terminal.ptid}"></td>
             <td th:text = "${repair.fault}"></td>
             <td th:text = "${repair.solution}"></td>
-            <td th:text = "${repair.dateReceived}"></td>
-            <td th:text = "${repair.dateReady}"></td>
+            <td th:text = "${#dates.format(repair.dateReceived, 'yyyy-MM-dd')}"></td>
+            <td th:text = "${#dates.format(repair.dateReady, 'yyyy-MM-dd')}"></td>
             <td> <a th:href = "@{./repairs/edit/{id}(id=${repair.repairId})}" class = "btn btn-primary"> Update </a>
                 <a th:href = "@{./repairs/edit/{id}(id=${repair.repairId})}"  class = "btn btn-danger"> Delete </a>
             </td>
