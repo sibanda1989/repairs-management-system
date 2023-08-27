@@ -17,7 +17,7 @@ public class RepairController {
 
     private final RepairService repairService;
     private final TerminalService terminalService;
-    String redirect = "/repair/repairs";
+    String redirect = "redirect:/repair/repairs";
 
     @Autowired
     public RepairController(RepairService repairService, TerminalService terminalService) {
@@ -26,7 +26,6 @@ public class RepairController {
     }
 
     @GetMapping("/repair/repairs")
-    // *TO DO* is this not a duplication, since app is listening at "/repairs" at class level?
     public String getRepairs(Model model){
         model.addAttribute("terminals", terminalService.getAllTerminals());
         model.addAttribute("repairs", repairService.getRepairs());
@@ -42,13 +41,13 @@ public class RepairController {
         return "repair/create-repair";
     }
 
-    @PostMapping("/repairs")
+    @PostMapping("/repair/repairs")
     public String saveRepair(@ModelAttribute Repair repair){
         repairService.addRepair(repair);
         return redirect;
     }
 
-    @GetMapping("/repairs/{id}")
+    @GetMapping("/repair/repairs/{id}")
     public String deleteRepair(@PathVariable Long repairId){
         repairService.deleteRepair(repairId);
         return redirect;
