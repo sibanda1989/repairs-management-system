@@ -53,12 +53,15 @@ public class RepairController {
         return redirect;
     }
 
+    /**
+     * handles GET requests to the /repairs/edit/{id} URL, retrieves a repair by its ID using a service class,
+     * adds the vendor to the model, and returns the logical view name "edit-repair" to render the response
+     * @param repairId
+     * @param model
+     * @return
+     */
     @GetMapping("/repair/repairs/edit/{repairId}")
     public String editRepairForm(@PathVariable Long repairId, Model model){
-        /*
-        this method handles GET requests to the /repairs/edit/{id} URL, retrieves a repair by its ID using a service class,
-        adds the vendor to the model, and returns the logical view name "edit-repair" to render the response
-         */
         model.addAttribute("repair", repairService.getRepairById(repairId));
         return "repair/edit-repair";
     }
