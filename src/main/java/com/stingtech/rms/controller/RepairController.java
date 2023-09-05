@@ -62,7 +62,9 @@ public class RepairController {
      */
     @GetMapping("/repair/repairs/edit/{repairId}")
     public String editRepairForm(@PathVariable Long repairId, Model model){
-        model.addAttribute("repair", repairService.getRepairById(repairId));
+        Repair repair = repairService.getRepairById(repairId)
+                .orElseThrow(() -> new RuntimeException("Repair not found"));
+        model.addAttribute("repair", repair);
         return "repair/edit-repair";
     }
 

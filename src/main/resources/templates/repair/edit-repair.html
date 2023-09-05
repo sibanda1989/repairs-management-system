@@ -43,7 +43,7 @@
       <h1 class="text-center">Update Repair</h1>
       <div class="card-body">
 
-        <form th:action="@{repair/repairs/{id} (id=${repair.repairId})}" th:object="${repair}" method="POST">
+        <form th:action="@{/repair/repairs/{id} (id=${repair.repairId})}" th:object="${repair}" method="POST">
 
             <div class="form-group">
                 <label>Date Received</label>
