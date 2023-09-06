@@ -50,19 +50,23 @@
                 <input type="text" id="datepickerrec" name="dateReceived" th:field = "*{dateReceived}" class="form-control" placeholder="Select Date Received"/>
                 <script th:inline="javascript">
                     $(document).ready(function() {
-                    $("#datepickerrec").datepicker();
+                    $("#datepickerrec").datepicker({
+                      dateFormat: 'yyyy-MM-dd'
+                    });
                     });
                 </script>
             </div>
             <div class="form-group">
-                <label>Date Ready</label>
-                <input type="text" id="datepickerred" name="dateReady" th:field = "*{dateReady}" class="form-control" placeholder="Select Date Ready"/>
-                <script th:inline="javascript">
-                    $(document).ready(function() {
-                    $("#datepickerred").datepicker();
-                    });
-                </script>
-            </div>
+              <label>Date Ready</label>
+              <input type="text" id="datepickerred" name="dateReady" th:field="*{dateReady}" class="form-control" placeholder="Select Date Ready"/>
+              <script th:inline="javascript">
+                  $(document).ready(function() {
+                      $("#datepickerred").datepicker({
+                          dateFormat: 'yyyy-MM-dd'
+                      });
+                  });
+              </script>
+          </div>
             <div class="form-group">
                 <label>Fault</label>
                 <input type="text" name="fault" th:field = "*{fault}" class="form-control" placeholder="Enter Fault"/>
@@ -72,13 +76,11 @@
                 <input type="text" name="solution" th:field = "*{solution}" class="form-control" placeholder="Enter Solution"/>
             </div>
             <div class="form-group">
-                <label for="terminal">Terminal:</label>
-            <select id="terminal" name="terminal.terminalId" th:field="*{terminal.terminalId}">
-        <option value="">-- Select Terminal --</option>
-        <option th:each="terminal : ${terminals}" th:value="${terminal.terminalId}" th:text="${terminal.ptid}">
-        </option>
-    </select>
-
+              <input type="text" name="terminalId" th:field = "*{repair.terminal.terminalId}" class="form-control" placeholder="Edit Terminal PTID"/>
+            </div>
+    <div class="footer-body">
+      <button type="submit" class="btn btn-primary"> Submit </button>
+    </div>
         </form>
       </div>
     </div>

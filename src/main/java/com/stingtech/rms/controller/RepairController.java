@@ -58,7 +58,7 @@ public class RepairController {
      * adds the vendor to the model, and returns the logical view name "edit-repair" to render the response
      * @param repairId
      * @param model
-     * @return
+     * @return edit-repair thymeleaf page
      */
     @GetMapping("/repair/repairs/edit/{repairId}")
     public String editRepairForm(@PathVariable Long repairId, Model model){
@@ -68,7 +68,13 @@ public class RepairController {
         return "repair/edit-repair";
     }
 
-    @PostMapping("repair/repairs/{id}")
+    /**
+     * handles requests POSTed on submission of editing a repair form
+     * on edit-repair page. Saves the edited repair in DB
+     * @param repairId
+     * @return redirects back to repairs page
+     */
+    @PostMapping("/repair/repairs/{id}")
     public String updateRepair(@PathVariable Long repairId){
         repairService.updateRepair(repairId);
         return redirect;
