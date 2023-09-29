@@ -4,10 +4,12 @@ import com.stingtech.rms.entity.TerminalModel;
 import com.stingtech.rms.entity.Vendor;
 import com.stingtech.rms.service.ModelService;
 import com.stingtech.rms.service.VendorService;
+import org.springframework.beans.NotReadablePropertyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.thymeleaf.exceptions.TemplateProcessingException;
 
 import java.util.List;
 import java.util.Optional;
@@ -55,17 +57,19 @@ public class ModelController {
     }
 
     @GetMapping("/model/models/edit/{id}")
-    public String editModelForm(@PathVariable Long id, Model model){
+    public String editModelForm(@PathVariable Long id, Model model)
+    throws Exception {
         model.addAttribute("terminalModel", modelService.getModelById(id));
+        model.addAttribute("vendor", vendorService.getAllVendors());
         return "model/edit-model";
     }
 
+    /*
+       This method handles updating of models. It takes the id of the model and updates the relevant field.
+       The updated terminalModel object is then POSTed
+     */
     @PostMapping("/models/{id}")
     public String updateModel(@PathVariable Long id, @ModelAttribute TerminalModel terminalModel, Model model){
-        /*
-        This method handles updating of models. It takes the id of the model and updates the relevant field.
-        The updated terminalModel object is then POSTed
-         */
         modelService.updateModel(id, terminalModel);
         return "redirect:/model/models";
     }
