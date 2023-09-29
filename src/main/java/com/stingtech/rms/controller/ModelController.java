@@ -59,8 +59,9 @@ public class ModelController {
     @GetMapping("/model/models/edit/{id}")
     public String editModelForm(@PathVariable Long id, Model model)
     throws Exception {
+        List<Vendor> vendors = vendorService.getAllVendors();
         model.addAttribute("terminalModel", modelService.getModelById(id));
-        model.addAttribute("vendor", vendorService.getAllVendors());
+        model.addAttribute("vendors", vendors);
         return "model/edit-model";
     }
 
