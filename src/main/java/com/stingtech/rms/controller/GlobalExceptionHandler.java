@@ -11,6 +11,13 @@ and pass on intuitive error messages to the user
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(Exception.class)
+    public String handleGenericError(Exception ex, Model model){
+        String errorMessage = ex.getMessage();
+        model.addAttribute("errorMessage", errorMessage);
+        return "error";
+    }
     @ExceptionHandler(IllegalStateException.class)
     public String handleIllegalStateException(IllegalStateException ex, Model model){
         String errorMessage = ex.getMessage();  //Retrieve the exception message dynamically
