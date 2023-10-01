@@ -43,6 +43,7 @@ public class ModelService{
          */
         TerminalModel existingModel = modelRepository.findById(modelId).get();
         existingModel.setModelName(terminalModel.getModelName());
+        existingModel.setVendor(terminalModel.getVendor());
 
         // now save the vendor
         return modelRepository.save(existingModel);
